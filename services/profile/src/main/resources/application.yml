@@ -1,0 +1,24 @@
+spring.datasource:
+  url: jdbc:postgresql://localhost:5432/profile
+  username: postgres
+  password: ${DB_PASSWORD:postgres}
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+axon:
+  axonserver.enabled: false
+  serializer:
+    events: jackson
+    messages: jackson
+    general: jackson
+  amqp:
+    exchange: events
+  eventhandling:
+    processors:
+      name:
+        source: queueMessageSource
